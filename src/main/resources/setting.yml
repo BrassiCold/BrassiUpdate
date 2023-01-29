@@ -1,6 +1,7 @@
 Options:
   debug: false
   notUpdateListInfo: false
+  downloadPlugin: true
 Lang:
   update-format-old: "§c旧版本"
   update-format-new: "§a最新版本"

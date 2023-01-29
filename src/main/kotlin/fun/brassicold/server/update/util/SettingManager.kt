@@ -17,6 +17,6 @@ object SettingManager {
         get() = BrassiUpdate.setting.getString("Lang.update-format-old")
     val Lang_null: String?
         get() = BrassiUpdate.setting.getString("Lang.update-format-null")
-    val CheckUpdate_Timing: String?
-        get() = BrassiUpdate.setting.getString("Options.autoCheckUpdate.timing")
+    val Download_Plugin: Boolean
+        get() = BrassiUpdate.setting.getBoolean("Options.downloadPlugin")
 }
