@@ -1,0 +1,11 @@
+Options:
+  debug: false
+  notUpdateListInfo: false
+Lang:
+  update-format-old: "§c旧版本"
+  update-format-new: "§a最新版本"
+  update-format-null: "§8当前插件不在更新列表中"
+UpdateList:
+  - Pouvoir: https://github.com/Glom-c/Pouvoir/
+  - TrChat: https://www.spigotmc.org/resources/trchat-1-8-1-15.74344
+

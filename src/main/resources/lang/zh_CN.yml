@@ -1,0 +1,11 @@
+plugin-load: '&7[ &b{0} &7] &b{0} &6加载成功！'
+plugin-enable: '&7[ &b{0} &7] &b{0} &6启用成功！'
+plugin-disable: '&7[ &b{0} &7] &b{0} &6卸载成功！'
+plugin-active: '&7[ &b{0} &7] &b{0} &6未开启自动检测版本更新...'
+
+command-reload: '&7[ &b{0} &7] &b{0} &6重载成功！'
+command-disable: '&7[ &b{0} &7] &b{0} &e草你妈，老子Disable了：）'
+
+debug-format: '&7[ &b{0}-debug &7] &e{1}'
+
+update-format: '&7[ &b{0} &7] &b{1} => 版本状态&7[ {2} &7]'
