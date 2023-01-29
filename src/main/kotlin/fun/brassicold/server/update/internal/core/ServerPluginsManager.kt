@@ -4,7 +4,7 @@ import org.bukkit.Bukkit
 
 
 object ServerPluginsManager {
-    fun obtainPluginList(): java.util.ArrayList<*>? {
+    fun obtainPluginList(): java.util.ArrayList<*> {
         val serverPlugins by lazy { Bukkit.getPluginManager().plugins.toMutableList() as ArrayList<*> }
         val pluginList by lazy { serverPlugins.clone() as ArrayList<*> }
         val serverPluginNameList = ArrayList<String>()

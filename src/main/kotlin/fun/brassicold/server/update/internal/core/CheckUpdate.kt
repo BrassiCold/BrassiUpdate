@@ -15,12 +15,23 @@ object CheckUpdate {
         if (updateWeb == "不存在") {
             return SettingManager.Lang_null!!
         }
+        var version: String? = null
         when (ToolsUtil.upType(updateWeb)) {
             "spigot" -> {
-                return ObtainPluginVersion.obtainVersion("spigot", plugin.lowercase(Locale.getDefault()), plugin)
+                version = ObtainPluginVersion.obtainVersion("spigot", plugin.lowercase(Locale.getDefault()), plugin)
+                return if (ToolsUtil.pluginVersion(plugin) == version) {
+                    SettingManager.Lang_new
+                } else {
+                    "无法获取版本"
+                }
             }
             "github" -> {
-                return ObtainPluginVersion.obtainVersion("github", plugin.lowercase(Locale.getDefault()), plugin)
+                version = ObtainPluginVersion.obtainVersion("github", plugin.lowercase(Locale.getDefault()), plugin)
+                return if (ToolsUtil.pluginVersion(plugin) == version) {
+                    SettingManager.Lang_new
+                } else {
+                    "无法获取版本"
+                }
             }
             null -> {
                 return "无法获取版本"

@@ -1,6 +1,7 @@
 package `fun`.brassicold.server.update.util
 
 import `fun`.brassicold.server.update.internal.core.CentralControl
+import taboolib.common.platform.function.console
 import java.net.HttpURLConnection
 import java.net.URL
 
@@ -9,6 +10,12 @@ object ObtainPluginVersion {
         var version: String? = null
         when (type) {
             "spigot" -> {
+
+                //还没想到办法实现
+                console().sendMessage("暂不支持Spigot！")
+                return  null
+
+                /**
                 try {
                     // 构造获取插件信息的URL
                     val url = URL("https://api.spigotmc.org/legacy/update.php?resource=$pluginId")
@@ -31,6 +38,7 @@ object ObtainPluginVersion {
                 }
                 return if (version == null || version!!.isEmpty()) null
                 else version
+                */
             }
             "github" -> {
                 try {
