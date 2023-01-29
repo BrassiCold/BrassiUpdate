@@ -15,7 +15,7 @@ object CheckUpdate {
         if (updateWeb == "不存在") {
             return SettingManager.Lang_null!!
         }
-        var version: String? = null
+        var version: String?
         when (ToolsUtil.upType(updateWeb)) {
             "spigot" -> {
                 version = ObtainPluginVersion.obtainVersion("spigot", plugin.lowercase(Locale.getDefault()), plugin)
