@@ -8,6 +8,7 @@ import taboolib.module.configuration.ConfigFile
 
 object BrassiUpdate : Plugin() {
 
+
     @Config("setting.yml", migrate = true)
     lateinit var setting: ConfigFile
 

@@ -1,23 +1,26 @@
 package `fun`.brassicold.server.update.internal.core
 
+import `fun`.brassicold.server.update.util.ObtainPluginVersion
 import `fun`.brassicold.server.update.util.SettingManager
 import `fun`.brassicold.server.update.util.ToolsUtil
 import taboolib.common.platform.function.console
 import taboolib.common.platform.function.pluginId
 import taboolib.module.lang.sendLang
+import java.util.*
+
 
 object CheckUpdate {
-    private fun checkUpdate(plugin: String): String {
+    private fun checkUpdate(plugin: String): String? {
         val updateWeb by lazy { CentralControl.obtainUpdateWeb(plugin) }
         if (updateWeb == "不存在") {
             return SettingManager.Lang_null!!
         }
         when (ToolsUtil.upType(updateWeb)) {
             "spigot" -> {
-                return "spigot"
+                return ObtainPluginVersion.obtainVersion("spigot", plugin.lowercase(Locale.getDefault()), plugin)
             }
             "github" -> {
-                return "github"
+                return ObtainPluginVersion.obtainVersion("github", plugin.lowercase(Locale.getDefault()), plugin)
             }
             null -> {
                 return "无法获取版本"
@@ -34,11 +37,19 @@ object CheckUpdate {
         //遍历服务器插件列表，每一个都判断一次是不是更新的列表中的之一
         for (sePlugin in serverPlugin) {
             if (sePlugin !in updatePlugin && SettingManager.Setting_NotUpdateList) {
-                console().sendLang("update-format", pluginId, sePlugin.toString(), checkUpdate(sePlugin.toString()))
+                checkUpdate(sePlugin.toString())?.let {
+                    console().sendLang("update-format", pluginId, sePlugin.toString(),
+                        it
+                    )
+                }
             }
             if (sePlugin in updatePlugin) {
                 //如果是其一，就输出如下
-                console().sendLang("update-format", pluginId, sePlugin.toString(), checkUpdate(sePlugin.toString()))
+                checkUpdate(sePlugin.toString())?.let {
+                    console().sendLang("update-format", pluginId, sePlugin.toString(),
+                        it
+                    )
+                }
             }
         }
     }

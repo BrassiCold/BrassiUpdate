@@ -31,4 +31,14 @@ object ToolsUtil {
         }
         return null
     }
+
+    fun parseGithubURL(url: String): Pair<String, String>? {
+        val pattern = Regex("https://github.com/(.*?)/(.*?)/?")
+        val matchResult = pattern.find(url)
+        return if (matchResult != null) {
+            Pair(matchResult.groupValues[1], matchResult.groupValues[2])
+        } else {
+            null
+        }
+    }
 }
