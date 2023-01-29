@@ -21,7 +21,7 @@ object BrassiUpdateLoader {
         console().sendMessage("")
 
         val pluginFolder by lazy { bukkitPlugin.dataFolder }
-        val pluginsFile by lazy { newFile(pluginFolder, "plugins/") }
+        val pluginsFile by lazy { newFile(pluginFolder, "plugins/", folder = true) }
         pluginsFile.createNewFile()
         console().sendLang("plugin-enable", pluginId)
     }
