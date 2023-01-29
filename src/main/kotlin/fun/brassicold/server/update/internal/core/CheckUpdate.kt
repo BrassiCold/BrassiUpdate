@@ -15,7 +15,7 @@ object CheckUpdate {
         if (updateWeb == "不存在") {
             return SettingManager.Lang_null!!
         }
-        var version: String?
+        val version: String?
         when (ToolsUtil.upType(updateWeb)) {
             "spigot" -> {
                 version = ObtainPluginVersion.obtainVersion("spigot", plugin.lowercase(Locale.getDefault()), plugin)
@@ -42,7 +42,7 @@ object CheckUpdate {
 
     fun checkUpdate() {
         //服务器的插件列表
-        val serverPlugin by lazy { ServerPluginsManager.obtainPluginList() as ArrayList<*> }
+        val serverPlugin by lazy { ServerPluginsManager.obtainPluginList() }
         //更新的插件列表
         val updatePlugin by lazy { CentralControl.obtainUpdatePluginList() }
         //遍历服务器插件列表，每一个都判断一次是不是更新的列表中的之一

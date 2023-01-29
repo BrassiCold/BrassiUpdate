@@ -20,12 +20,10 @@ object ToolsUtil {
         val webTest1 by lazy { webTest[1].split("/").toMutableList()[0] }
         when (webTest1) {
             "www.spigotmc.org" -> {
-                console().sendMessage("spigot")
                 return "spigot"
             }
 
             "github.com" -> {
-                console().sendMessage("github")
                 return "github"
             }
         }
@@ -40,7 +38,6 @@ object ToolsUtil {
             return null
         }
         val parts = web.substring(prefix.length).split("/")
-        console().sendMessage("parts: $parts")
         if (parts.size < 2) return null
         return Pair(parts[0], parts[parts.size - 1])
     }
