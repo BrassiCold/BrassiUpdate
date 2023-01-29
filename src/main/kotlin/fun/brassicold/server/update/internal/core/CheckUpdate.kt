@@ -19,18 +19,18 @@ object CheckUpdate {
         when (ToolsUtil.upType(updateWeb)) {
             "spigot" -> {
                 version = ObtainPluginVersion.obtainVersion("spigot", plugin.lowercase(Locale.getDefault()), plugin)
-                return if (ToolsUtil.pluginVersion(plugin) == version) {
+                return if (ToolsUtil.pluginVersion(plugin)!!.replace("v", "") == version) {
                     SettingManager.Lang_new
                 } else {
-                    "无法获取版本"
+                    SettingManager.Lang_old
                 }
             }
             "github" -> {
                 version = ObtainPluginVersion.obtainVersion("github", plugin.lowercase(Locale.getDefault()), plugin)
-                return if (ToolsUtil.pluginVersion(plugin) == version) {
+                return if (ToolsUtil.pluginVersion(plugin)!!.replace("v", "") == version) {
                     SettingManager.Lang_new
                 } else {
-                    "无法获取版本"
+                    SettingManager.Lang_old
                 }
             }
             null -> {
