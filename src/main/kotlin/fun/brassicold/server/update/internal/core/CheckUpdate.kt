@@ -46,6 +46,8 @@ object CheckUpdate {
         //更新的插件列表
         val updatePlugin by lazy { CentralControl.obtainUpdatePluginList() }
         //遍历服务器插件列表，每一个都判断一次是不是更新的列表中的之一
+        val startTime = System.currentTimeMillis()
+
         for (sePlugin in serverPlugin) {
             if (sePlugin !in updatePlugin && SettingManager.Setting_NotUpdateList) {
                 checkUpdate(sePlugin.toString())?.let {
@@ -63,5 +65,8 @@ object CheckUpdate {
                 }
             }
         }
+
+        val endTime = System.currentTimeMillis()
+        console().sendLang("command-check", pluginId, endTime - startTime)
     }
 }
